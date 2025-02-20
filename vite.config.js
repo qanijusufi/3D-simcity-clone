@@ -1,15 +1,13 @@
-export default {
-  // Set the base directory for GitHub pages
-  base: '/simcity-threejs-clone/',
+import { defineConfig } from "vite";
 
-  // Set the project root directory (relative to the config file)
-  root: './src',
-
-  // Set the directory to serve static files from (relative to the root)
-  publicDir: './public',
-  
-  // Set the build output directory
+export default defineConfig({
+  root: "src", // Set source directory
+  publicDir: "../public",
   build: {
-    outDir: './dist'
-  }
-}
+    outDir: "../dist",
+    assetsDir: "assets", // Ensures assets are built in a separate folder
+    rollupOptions: {
+      input: "src/index.html", // Make sure Vite looks for index.html inside src
+    },
+  },
+});
